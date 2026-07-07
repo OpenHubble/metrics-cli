@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 
-import argparse  # Argument parsing
-import subprocess  # Executing system commands like systemctl
-# Import necessary libraries
+import argparse
+import subprocess
 from pathlib import Path
 
 import requests  # Making HTTP requests
@@ -85,7 +84,6 @@ def uninstall():
 
     if confirmation in ["yes", "y"]:
         uninstall_script = Path("/opt/openhubble-cli/scripts/uninstall.sh")
-
         subprocess.run(["sudo", uninstall_script])  # Run the uninstallation script
         cprint("Tool uninstalled successfully.", "green")
     else:
