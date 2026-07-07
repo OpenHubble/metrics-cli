@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
-# Import necessary libraries
 import argparse  # Argument parsing
 import subprocess  # Executing system commands like systemctl
+# Import necessary libraries
+from pathlib import Path
 
 import requests  # Making HTTP requests
 from art import text2art  # To generate ASCII art
@@ -70,7 +71,7 @@ def update(get_confirmation=True):
             cprint("Updating aborted.", "yellow")
             return
 
-    update_script = "/opt/openhubble-cli/scripts/update.sh"
+    update_script = Path("/opt/openhubble-cli/scripts/update.sh")
     subprocess.run(["sudo", update_script])  # Run the update script
     cprint("Tool updated successfully.", "green")
 
@@ -83,7 +84,7 @@ def uninstall():
     confirmation = input("Are you sure you want to uninstall the tool? (yes/no): ").strip().lower()
 
     if confirmation in ["yes", "y"]:
-        uninstall_script = "/opt/openhubble-cli/scripts/uninstall.sh"
+        uninstall_script = Path("/opt/openhubble-cli/scripts/uninstall.sh")
 
         subprocess.run(["sudo", uninstall_script])  # Run the uninstallation script
         cprint("Tool uninstalled successfully.", "green")
