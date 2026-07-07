@@ -47,3 +47,10 @@ config_file_type = Annotated[
         readable=True,
     ),
 ]
+force = Annotated[
+    bool,
+    typer.Option(
+        "--force", "-F",
+        help="Force doing with out confirmation"
+    )
+]
