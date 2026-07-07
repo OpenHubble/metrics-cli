@@ -39,5 +39,3 @@ class Settings(BaseSettings):
 
 # Run settings
 settings = Settings()
-
-print(settings)
