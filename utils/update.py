@@ -46,7 +46,20 @@ def check_for_updates():
         }
 
 
-def update_function():
+def do_update():
+    subprocess.run(
+        ["sudo", Path("/opt/openhubble-cli/scripts/update.sh")],
+        check=True,
+    )
+
+    cprint("Updated successfully.", "green")
+
+
+def update_function(force: bool):
+    if force:
+        do_update()
+        raise typer.Exit()
+
     check_update = check_for_updates()
 
     if not check_update['new']:
@@ -75,9 +88,4 @@ def update_function():
 
     cprint(f"Updating OpenHubble CLI to version {latest["latest_version"]}", "blue")
 
-    subprocess.run(
-        ["sudo", Path("/opt/openhubble-cli/scripts/update.sh")],
-        check=True,
-    )
-
-    cprint("Updated successfully.", "green")
+    do_update()
