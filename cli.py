@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+import subprocess
+from pathlib import Path
 from typing import Annotated
 
 import requests
@@ -134,6 +136,7 @@ def update():
 
     if not check_update['new']:
         cprint(f"You are using latest version of OpenHubble CLI: {settings.project_version}")
+        raise typer.Exit()
 
     latest = check_update['latest']
 
