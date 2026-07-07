@@ -6,10 +6,13 @@ charset-normalizer==3.4.1
 idna==3.10
 markdown-it-py==3.0.0
 mdurl==0.1.2
+packaging==26.2
 pydantic==2.10.6
 pydantic-extra-types==2.10.2
+pydantic-settings==2.14.2
 pydantic_core==2.27.2
 Pygments==2.19.1
+python-dotenv==1.2.2
 requests==2.32.3
 rich==13.9.4
 rich-gradient==0.1.7
@@ -18,5 +21,6 @@ termcolor==2.5.0
 toml==0.10.2
 typer==0.26.8
 typer-cli==0.24.0
+typing-inspection==0.4.2
 typing_extensions==4.12.2
 urllib3==2.3.0
